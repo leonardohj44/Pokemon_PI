@@ -1,0 +1,149 @@
+.container{
+    background-color: rgba(165, 78, 97);
+    margin: 18px auto;
+    width: 700px;
+    border-style:groove;
+    border-width: 20px;
+    border-color:red;
+    border-radius: 20px;
+    
+}
+
+.formContainer label{
+   font-size: 16px;
+   font-weight: bold;
+}
+
+.container h2{
+    margin-bottom: 2%;
+    margin-top: 1.5%;
+}
+
+.formContainer form{
+    margin-top: 30px;
+    display: grid;
+    margin-top: 0%;
+    align-items: center;
+}
+
+.inputCont{
+    display: flex;
+    align-items: center;
+    margin-top: 3.5%;
+}
+
+.ranges{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.inputRange{
+    display: flex;
+    align-items: center
+}
+
+.range{
+    margin-left: 34%;
+    width: 190px;
+    margin-top: 0%;
+    position: absolute;
+}
+
+.input{
+    margin-left: 5%;
+    width: 100px;
+    max-width: 260px;
+    margin-top: 0%;
+    height: 22px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+}
+
+.inputCont label{
+    margin-left: 15%;
+}
+
+.name {
+    margin-left: 5%;
+    width: 400px;
+    max-width: 360px;
+    margin-top: 0%;
+    height: 22px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+}
+
+.image{
+    margin-left: 5%;
+    width: 400px;
+    max-width: 360px;
+    margin-top: 0%;
+    height: 22px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+}
+
+.errors{
+    color: yellow;
+    font-size: 14px;
+    text-indent: 2em;
+}
+
+.selected{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.containerType{
+    display: block;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 10px;
+    text-align: center;
+    justify-content: baseline;
+    width: 80px;
+    height: 30px;
+}
+
+.containerType span{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(190, 35, 35);
+    float: right;
+    border-top: 0%;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.selectTypes{
+    margin-left: 2%;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.btn{
+    border-radius: 5px;
+    background-color: red;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    margin-bottom: 2%;
+    cursor: pointer;
+    font-size: 16px;
+    color:white;
+}
+

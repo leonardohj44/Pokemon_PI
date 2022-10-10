@@ -1,0 +1,82 @@
+.cont{
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    margin-top: 120px;
+}
+
+.dex{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    border-width: 10px;
+    border-style: groove;
+    border-color: red;
+    background-image: url("../Images/card-detalle.jpg");
+    background-size: 840px 500px;
+    background-repeat: no-repeat;
+    width: 840px;
+    height: 500px;
+    position: relative;
+    top: 0px;
+}
+
+.pic{
+   position: absolute;
+  left: 4%;
+  top: 25%;
+ 
+}
+
+.desc{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 20%;
+    left: 61%;
+    justify-content: center;
+} 
+
+.title{
+    width: 260px;
+    height: 120px;
+    color: red;
+    font-size: 25px;
+}
+
+.title p{
+    margin-bottom: 0%;
+    margin-top: 0%;
+    color: blue;
+}
+
+.title h3{
+    margin-bottom: 0%;
+    margin-top: 45px;
+}
+
+.grid{
+    width: 320px;
+    height: 200px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 160px);
+    margin-top: 20px;
+}
+
+.grid p{
+    margin-bottom: 7%;
+}
+
+.grid p{
+    margin-top: 0%;
+    text-align: left;
+}
+
+.nav{
+    position: fixed;
+    width: 100%;
+    margin-top: 0%;
+    top: 0;
+}

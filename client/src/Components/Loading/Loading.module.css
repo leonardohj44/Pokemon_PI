@@ -1,0 +1,18 @@
+.loaderContainer{
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+
+.loader{
+    background-position:center;
+    background-repeat: no-repeat;
+    height: 730px;
+    width: 350px;
+    font-size: 35px;
+    border-radius: 200px;
+}
+
+.loader p{
+    padding-top: 0px;
+}

@@ -1,0 +1,35 @@
+.filtContainer{
+    display: flex;
+    height: 45px;
+    width: 100%;
+    margin-top: 0px;
+    background-color: rgb(189, 82, 82);
+    justify-content: center;
+    column-gap: 20px;
+    padding: 3px;
+    border-radius: 2px;
+    align-items:center;
+}
+
+.filtContainer select{
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    align-items: center;
+    text-align: left;
+    height: 30px;
+    width: 140px;
+}
+
+.all{
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.normal{
+    cursor: pointer;
+}
+

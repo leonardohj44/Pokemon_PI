@@ -1,0 +1,45 @@
+.cover{
+   display: flex;
+   position: relative;
+   height: 100vh;
+   justify-content: center;
+}
+
+.cover img{
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button{
+   position: absolute;
+   top: 25%;
+   left: 43%;
+    color: rgb(255, 255, 255);
+    background: #a945c7;
+    box-shadow: 0 0 10px  #a945c7, 0 0 40px  #a945c7, 0 0 80px   #a945c7;
+    letter-spacing: 1px;
+    font-size: 20px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+    border-radius: 20px;
+    border: 2px solid #630680;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: bold;
+    width: 200px;
+    height: 55px;
+    text-align: center;
+    padding-top: 1px;
+    cursor: pointer;
+}
+
+ .button:hover{
+   background: #4373ca;
+   box-shadow: 0 0 20px #4373ca, 0 0 190px #4373ca, 0 0 190px  #4373ca;
+   color: white;
+   border: 2px solid #1a3361;
+}

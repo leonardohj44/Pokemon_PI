@@ -1,0 +1,9 @@
+bola pokemon:
+https://i.pinimg.com/originals/f9/7f/5c/f97f5c6510994f677877b08320475008.gif
+
+https://pokeapi.co/api/v2/pokemon?offset=NN&limit=MM
+NN=01.....   desplazamiento de 1 pokemon
+MM=40.....   carga 40 pokemones
+
+total=1154 pokemones
+

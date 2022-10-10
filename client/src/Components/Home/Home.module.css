@@ -1,0 +1,99 @@
+.back{
+    margin-top: 115px;
+    margin-bottom: 50px;
+}
+
+.pag{
+    height: 35px;
+    background-color: rgb(189, 82, 82);;
+}
+
+.nav{
+    position: fixed;
+    width: 100%;
+    margin-top: 0%;
+    top: 0;
+}
+
+.grid{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    padding: 5px;
+    justify-content: center;
+    
+}
+
+.contnotFound{
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+.noFound{
+    background-image:url("../Images/not-card.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    height: 680px;
+    width: 20%;
+    /* width: 370px; */
+    border-style:groove;
+    border-width: 20px;
+    border-color:red;
+}
+
+.noFound p{
+    padding: 0%;
+    margin: 0%;
+    font-size: 20px;
+}
+
+.cards{
+    font-size: 1.3rem;
+    text-align: center;
+    justify-content:left;
+    border-style:groove;
+    border-width: 10px;
+    border-color:black;
+    margin: 12px;
+    border-radius: 50px;
+    background-image: url("../Images/card.jpg");
+    background-size: 240px 380px;
+    background-repeat:repeat;
+    height: 380px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.cards:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(245, 57, 0, 0.582);
+}
+
+.cards img{
+    margin-top: 4%;
+    margin-left: 45px;
+}
+
+.cards h3{
+    margin-top: 98px;
+    margin-left: 18px;
+    font-size: 30px;
+}
+
+.cards p{
+    margin-top: 14%;
+    text-align: center;
+}
+
+.pagfoot{
+    height: 34px;
+    padding-top: 5px;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(189, 82, 82);
+    position: fixed;
+    bottom: 0%;
+    border-width: 1px;
+    border-style: solid;
+}
