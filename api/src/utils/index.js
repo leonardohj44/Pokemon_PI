@@ -18,43 +18,10 @@ const getAllTypes = async () => {
     }
   }
 
-// const getApiInfo = async () => {
-//     try {
-//       const getApi = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=40'); // trae info API
-//       const getUrlPoke = getApi.data.results.map(e => axios.get(e.url)); // entro a la .url de cada pokemon
-//       const urlPokemons = await axios.all(getUrlPoke); // trae la info url del pokemon
-//       let dataPoke = urlPokemons.map(e => e.data);  // data de cada pokemon desde url
-//       let infoPokemons = dataPoke.map(pokemon => {  // datos de cada pokemon
-//         return {
-//             id: pokemon.id,
-//             name: pokemon.name,
-//             life: pokemon.stats[0].base_stat,
-//             attack: pokemon.stats[1].base_stat,
-//             defense: pokemon.stats[2].base_stat,
-//             speed: pokemon.stats[5].base_stat,
-//             height: pokemon.height,
-//             weight: pokemon.weight,
-//             types: pokemon.types.map(t => t.type.name),
-//             image: pokemon.sprites.other.dream_world.front_default,
-//             //image: pokemon.sprites.front_default,
-//             isDefault: pokemon.is_default
-//         }
-//       })
-
-//       ////========================= DESCARGA API EN LA DB ============================
-//       // infoPokemons.forEach(async (p) => {  // carry pokemon to DB
-//       //   await createPokemon(p)
-//       // })
-
-//       return await infoPokemons; 
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
 
 const getFromAPI = async () => {
   try {
-      const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=40&limit=10");   // No se por qué se redujo de 40 a 24 cards como max.
+      const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=40&limit=24");   // No se por qué se redujo de 40 a 24 cards como max. Estoy castigado
       const subreq = pokemonsAPI.data.results.map(async e => await axios.get(e.url))
       const result = await Promise.all(subreq); // ---> [{},{},{}]
       const pokemons = result.map( e => {
@@ -77,34 +44,6 @@ const getFromAPI = async () => {
       console.log(error);
   }
 }
-
-// const createPokemon = async (dataPokemon) => { // recibe datos del body
-//   try {
-//       const { name, life, attack, defense, speed, height, weight, image, types, isDefault } = dataPokemon;
-//       const newPokemon = await Pokemon.create(          // creo al pokemón en mi db
-//           {
-//               name,
-//               life,
-//               attack,
-//               defense,
-//               speed,
-//               height,
-//               weight,
-//               image,
-//               isDefault,
-//           }
-//       );
-      
-//       const typePokeDB = await Types.findAll({ // busca nombre del type en la tabla Type
-//           where: { name: types }
-//       });
-//       // a mi nuevo pokemón le agrego el type en la base de datos
-//       let createdPoke = newPokemon.addType(typePokeDB);  // nuevo pokemon con nuevo type
-//       return createdPoke;
-//   } catch (error) {
-//       console.error(error);
-//   }
-// }
 
 const getFromDB = async () => {
   try {
@@ -170,21 +109,20 @@ const getTotalPokemons = async () => {
 
 const postPokemon = async (pokeDataForm) => {
   try {
-      const {name, image, life, attack, defense, speed, height, weight, types} = pokeDataForm;
-      //types ---> ["type1", "type1",....]
+      const {name, image, life, attack, defense, speed, height, weight, types} = pokeDataForm;   //types ---> ["type1", "type2",....]
       const newPokemonCreated = await Pokemon.create({ // newPokemonCreated --> it is an object
           name,
-          image,
           life,
           attack,
           defense,
           speed,
           height,
-          weight
+          weight,
+          image
       })
       types.forEach(e => {Types.findOrCreate({where: {name: e}})})
       let typesAddedToNewPokemon = await Types.findAll({where: {name: types}}); //--> []
-      //console.log(typesAddedToNewPokemon)
+      
       let addedTypes = await  newPokemonCreated.addTypes(typesAddedToNewPokemon)
       return addedTypes;
   } catch (error) {
@@ -195,7 +133,6 @@ const postPokemon = async (pokeDataForm) => {
 module.exports = {
     getAllTypes,
     getFromAPI,
-    //getApiInfo,
     getFromDB,
     getPokemonsById,
     getTotalPokemons,

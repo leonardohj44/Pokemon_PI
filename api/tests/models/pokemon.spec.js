@@ -7,7 +7,7 @@ describe('Pokemon model', () => {
       console.error('Unable to connect to the database:', err);
     }));
   describe('Validators', () => {
-    beforeEach(() => Pokemon.sync({ force: true }));
+    beforeEach(() => Pokemon.sync({ force: false }));
     describe('name', () => {
       it('should throw an error if name is null', (done) => {
         Pokemon.create({})
