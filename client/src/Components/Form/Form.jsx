@@ -119,7 +119,6 @@ export function Form() {
         })
     }
 
-
     return (
         <>
         <NavBar/>
@@ -138,6 +137,7 @@ export function Form() {
                             onChange={handleInputChange}
                             placeholder="Pokemon name"
                             autoComplete='off'
+                            title="INGRESE EL NOMBRE DEL POKEMON"
                             required
                         />
                         

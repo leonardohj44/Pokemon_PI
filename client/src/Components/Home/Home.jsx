@@ -12,16 +12,17 @@ import { Filters } from '../Filters/Filters';
 export function Home() {
     const dispatch = useDispatch();
     const fullPokemons = useSelector(state => state.allPokemons);
+    console.log(fullPokemons);
     const msgError = useSelector(state => state.error);
-   
+    
     useEffect(() => {
         dispatch(getTypes())
         if(fullPokemons.length === 0 ) dispatch(getAllPokemons())
         return () => {
             dispatch(clearPokemons());
         }
-    }, []);
-    //}, [dispatch]);
+    }, []);   // matriz de dependencia, se ejecutará una sola vez (aparecerá warning)
+    
     
     const backHome = () => {
         dispatch(clearPokemons())
@@ -43,7 +44,6 @@ export function Home() {
         return setPage(n);
     }
     //---pokemonsPerPage---//
-
 
     return (
         <>

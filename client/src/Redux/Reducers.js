@@ -5,7 +5,7 @@ import {
     FILTER_CREATED, FILTER_ATTACK, CLEAR_FILTERS
 } from './Actions';
 
-// we define the initial state
+// define the initial state
 const initialState = {
     allPokemons: [],
     pokemonsAux: [],
@@ -50,7 +50,7 @@ const rootReducer = (state=initialState, action) =>{
             return {
                 ...state,
                 allPokemons: action.payload,
-                pokemonsAux: action.payload,
+                //pokemonsAux: action.payload,
                 error: [],
             }
         case MSG_ERROR:

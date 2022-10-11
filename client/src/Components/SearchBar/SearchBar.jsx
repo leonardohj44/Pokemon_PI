@@ -17,6 +17,7 @@ export function SearchBar() {
            setSearchName(""); // It clears the search bar
        }
        else{
+            // alert("Please insert the name of a Pokemon!");
         Swal.fire({           // pop-up window for validation
             icon: 'error',
             title: 'Missing text',

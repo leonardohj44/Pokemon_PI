@@ -90,7 +90,6 @@ export const getTypes = () => {
     }
 }
 
-
 export const clearPokemons = () => {
     return {
         type: CLEAR_POKEMONS,
