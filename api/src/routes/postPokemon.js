@@ -15,15 +15,4 @@ router.post("/", async (req, res) => {
     }
 })
 
-// router.delete("/delete", (async(req, res) => {
-//     try {
-//         const deleted = await Pokemon.destroy({
-//             where: {name: "UNKNOWN"}
-//         })
-//         return res.status(200).send(`${deleted} pokemon deleted succesfully`);
-//     } catch (error) {
-//         res.status(404).send('Error while deleting Pokemon');
-//     }
-// }))
-
 module.exports = router;

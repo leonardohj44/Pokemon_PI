@@ -18,7 +18,6 @@ const getAllTypes = async () => {
     }
   }
 
-
 const getFromAPI = async () => {
   try {
       const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=40&limit=10");   // No se por qué se redujo de 40 a 24 cards como max. Estoy castigado
@@ -97,7 +96,6 @@ const getPokemonsById = async (id) => {
 
 const getTotalPokemons = async () => {
   try {
-      //const dataAPI = await getApiInfo();
       const dataAPI = await getFromAPI();
       const dataDB = await getFromDB();
       const totalDB = dataDB.concat(dataAPI);
@@ -110,7 +108,7 @@ const getTotalPokemons = async () => {
 const postPokemon = async (pokeDataForm) => {
   try {
       const {name, image, life, attack, defense, speed, height, weight, types} = pokeDataForm;   //types ---> ["type1", "type2",....]
-      const newPokemonCreated = await Pokemon.create({ // newPokemonCreated --> it is an object
+      const newPokemonCreated = await Pokemon.create({              // newPokemonCreated --> it is an object
           name,
           life,
           attack,

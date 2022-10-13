@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        
         <Route exact path="/" component={Landing}/>
         <Route exact path="/home" component={Home}/>
         <Route exact path = "/pokemons/:id" component={Details}/>        
@@ -21,7 +20,3 @@ function App() {
 }
 
 export default App;
-
-
-//<Route exact path = "/types" ><Types/></Route>
-//        <Route exact path = "/types" component={Types}/>

@@ -11,8 +11,7 @@ router.get("/", async (req, res) => {
             if(pokemonMatches.length > 0) res.status(201).json(pokemonMatches);
             else res.status(404).json([{error: 'The pokemon name does not exist'}]);
         }
-        else{
-            //console.log(pokemonMatches.map(p => p.toJSON()))
+        else {
             return res.status(201).json(totalPokemons);
         }
     } catch (error) {

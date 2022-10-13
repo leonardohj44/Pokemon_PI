@@ -123,7 +123,7 @@ export function Filters({backHome}) {
           
             <div className={styles.filt}>
                 <div className={styles.clear}>
-                    <button type="submit" value={filtersState.alphabeticalOrder}  onClick={clearAllFilters} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
+                    <button type="submit" value={filtersState.alphabeticalOrder} onClick={clearAllFilters} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
                         Clear Filters
                     </button>
                 </div>

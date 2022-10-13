@@ -61,7 +61,7 @@ export function Form() {
     // validation
     function validate (value){ // value is the object with inputs ---> {}
         let errors = {};
-        if(!regExp.name.test(value.name)){ // --> if value does not meet this condition... then
+        if(!regExp.name.test(value.name)){ 
             errors.name = alerts.name;
         }
         if(value.life > 4440 || value.life < 1 || !value.life) errors.life = alerts.life;              
