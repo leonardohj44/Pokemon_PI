@@ -78,7 +78,7 @@ export function Filters({backHome}) {
 
     return (
         <div className={styles.filtContainer}>
-            <img src={banner} width={404} height={60} />
+            <input type="image" src={banner} width={404} height={60} onClick={clearAllFilters} alt="clear"/>
             <div className={styles.search}>
                 <SearchBar />
             </div>
@@ -122,16 +122,6 @@ export function Filters({backHome}) {
                     <label>Order by Attack Low-High</label>
                 </div>  
             </div>
-
-
-          
-            {/* <div className={styles.filt}>
-                <div className={styles.clear}>
-                    <button type="submit" value={filtersState.alphabeticalOrder} onClick={clearAllFilters} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
-                        Clear Filters
-                    </button>
-                </div>
-            </div> */}
         </div>
     )
 }
