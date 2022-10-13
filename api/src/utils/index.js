@@ -14,14 +14,14 @@ const getAllTypes = async () => {
         return typeDB;
 
     } catch (error) {
-        console.log("============================>",error);
+        console.log(error);
     }
   }
 
 
 const getFromAPI = async () => {
   try {
-      const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=40&limit=2");   // No se por qué se redujo de 40 a 24 cards como max. Estoy castigado
+      const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=40&limit=10");   // No se por qué se redujo de 40 a 24 cards como max. Estoy castigado
       const subreq = pokemonsAPI.data.results.map(async e => await axios.get(e.url))
       const result = await Promise.all(subreq); // ---> [{},{},{}]
       const pokemons = result.map( e => {
