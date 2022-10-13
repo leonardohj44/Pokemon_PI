@@ -1,13 +1,13 @@
 import {useDispatch, useSelector} from 'react-redux';
 import React, {useState} from 'react';
-import {  orderAlphabetically, filterByTypes, filterCreate, filterByAttack} from '../../Redux/Actions';
+import {  orderAlphabetically, filterByTypes, filterCreate, orderByAttack, getAllPokemons, clearPokemons} from '../../Redux/Actions';
 import styles from './Filters.module.css'
 import { SearchBar } from '../SearchBar/SearchBar';
 
-export function Filters({fullPokemons}) {
+export function Filters({backHome}) {
     const dispatch = useDispatch();
     const typesPok = useSelector(state => state.types);
-  
+      
     const [filtersState, setfiltersState] = useState({
         alphabeticalOrder: 0,
         typesFilter:0,
@@ -24,6 +24,28 @@ export function Filters({fullPokemons}) {
         })
     }
 
+    const handleCreated = (e) => {
+        dispatch(filterCreate(e.target.value));
+        
+        setfiltersState({
+            ...filtersState,
+            filterCreated: e.target.value,
+            alphabeticalOrder: 0,
+            filterAttack:0,
+            typesFilter:0
+        })
+    }
+
+    const handleAttack = (e) => {
+        dispatch(orderByAttack(e.target.value))
+        setfiltersState({
+            ...filtersState,
+            filterAttack: e.target.value,
+            orderAlphabetically: 0,
+            alphabeticalOrder:0
+        })
+    }
+
     const handleTypeFilter = (e) => {
         dispatch(filterByTypes(e.target.value))
         setfiltersState({
@@ -35,35 +57,32 @@ export function Filters({fullPokemons}) {
         }) 
     }
 
-    const handleCreated = (e) => {
-        dispatch(filterCreate(e.target.value))
+    const clearAllFilters = () => {
+        dispatch(clearPokemons())
+        dispatch(getAllPokemons())
         setfiltersState({
             ...filtersState,
-            filterCreated: e.target.value,
             alphabeticalOrder: 0,
-            filterAttack:0,
-            typesFilter:0
+            typesFilter:0,
+            filterCreated: 0,
+            filterAttack: 0
         })
     }
 
-    const handleAttack = (e) => {
-        dispatch(filterByAttack(e.target.value))
-        setfiltersState({
-            ...filtersState,
-            filterAttack: e.target.value,
-            orderAlphabetically: 0,
-            alphabeticalOrder:0
-        })
-    }
+    // uncheked radiobutton
+    const [checked, setChecked] = useState({A:false, Z:false, HIGH:false, LOW:false});
+    const changeRadio = (e) => {
+      setChecked(() => {return { A:false, Z:false, HIGH:false, LOW:false, [e.target.value]: true}});
+    };
 
     return (
         <div className={styles.filtContainer}>
             <div className={styles.search}>
-                <SearchBar/>
+                <SearchBar />
             </div>
 
             <div className={styles.filt}>
-            <select name="type" id="Type Filter" onChange={handleTypeFilter} value={filtersState.typesFilter}>
+            <select name="type" id="Type Filter" onChange={handleTypeFilter} value={filtersState.typesFilter} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
                 <option value="">Filter by types</option>
                 {typesPok.map(e => 
                     (<option  key={e.id} value={e.name}>{e.name}</option>)
@@ -71,31 +90,45 @@ export function Filters({fullPokemons}) {
             </select>
             </div>
             
-            <div className={styles.filt}>
-            <select name="sort" id="Alphabetical order" value={filtersState.alphabeticalOrder} onChange={handleSort} >
-                <option value = "0" disabled>Order ...</option>
-                <option value="A">Ascending</option>
-                <option value="Z">Descending</option>
-            </select>
+            <div className={styles.filtRadio}>
+                <div>
+                    <input type="radio" checked={checked.A} value="A" name="sort" onChange={changeRadio} onFocus={handleSort}  id="radio1"/>
+                    <label>Order by Alphabetical A-Z</label>
+                </div>
+                <div>
+                    <input type="radio" checked={checked.Z} value="Z" name="sort" onChange={changeRadio} onFocus={handleSort} id="radio1" />
+                    <label>Order by Alphabetical Z-A</label>
+                </div>       
             </div>
             
-            <div className={styles.filt}>
-            <select  name="attack" id="Attack Filter" onChange={handleAttack} value={filtersState.filterAttack}>
-                <option value="0" disabled>Order by Attack</option>
-                <option value="HIGH">High to Low</option>
-                <option value="LOW">Low to High</option>
-            </select>
+            <div className={styles.filtRadio}>
+                <div>
+                    <input type="radio" checked={checked.HIGH} value="HIGH" name="sort" onChange={changeRadio} onFocus={handleAttack} id="radio2" />
+                    <label>Order by Attack High-Low</label>
+                </div>
+                <div>
+                    <input type="radio" checked={checked.LOW} value="LOW" name="sort" onChange={changeRadio} onFocus={handleAttack} id="radio2" />
+                    <label>Order by Attack Low-High</label>
+                </div>  
             </div>
 
-            <div className={styles.filt}>
-            <select  name="created" id="Created Filter" onChange={handleCreated} value={filtersState.filterCreated}>
+            <div className={styles.filtDB}>
+            <select name="created" id="Created Filter" onChange={handleCreated} value={filtersState.filterCreated} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
                 <option value="0" disabled>Source database</option>
                 <option value="API">Pokemons from API</option>
                 <option value="POKEMONS CREATED">Pokemons from Database</option>
-                <option value="ALL">Show All</option>
+                <option value="ALL" >Show All</option>
             </select>
             </div>
           
+            <div className={styles.filt}>
+                <div className={styles.clear}>
+                    <button type="submit" value={filtersState.alphabeticalOrder}  onClick={clearAllFilters} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
+

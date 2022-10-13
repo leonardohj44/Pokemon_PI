@@ -2,7 +2,7 @@ import {
     GET_ALL_POKEMONS, GET_POKEMON_DETAILS, 
     CLEAR_DETAILS, GET_POKEMON_NAME, GET_TYPES, MSG_ERROR,
     CLEAR_POKEMONS, POST_POKEMON, ORDER_ALPHABET, FILTER_TYPES, 
-    FILTER_CREATED, FILTER_ATTACK, CLEAR_FILTERS
+    FILTER_CREATED, ORDER_ATTACK, CLEAR_FILTERS
 } from './Actions';
 
 // define the initial state
@@ -50,7 +50,7 @@ const rootReducer = (state=initialState, action) =>{
             return {
                 ...state,
                 allPokemons: action.payload,
-                //pokemonsAux: action.payload,
+                pokemonsAux: action.payload,
                 error: [],
             }
         case MSG_ERROR:
@@ -138,7 +138,7 @@ const rootReducer = (state=initialState, action) =>{
                 error: []
             }
             
-            case FILTER_ATTACK:
+            case ORDER_ATTACK:
             const copyPokem = [...state.allPokemons];
             let res;
             const highLow = (a, b) => {return b.attack - a.attack};

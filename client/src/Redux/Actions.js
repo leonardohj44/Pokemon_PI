@@ -8,7 +8,7 @@ export const MSG_ERROR = "MSG_ERROR";
 export const CLEAR_POKEMONS = "CLEAR_POKEMONS";
 export const POST_POKEMON = "POST_POKEMON";
 export const ORDER_ALPHABET = "ORDER_ALPHABET";
-export const FILTER_ATTACK = "FILTER_ATTACK";
+export const ORDER_ATTACK = "ORDER_ATTACK";
 export const FILTER_TYPE = "FILTER_TYPE";
 export const FILTER_CREATED = "FILTER_CREATED";
 export const FILTER_TYPES = "FILTER_TYPES";
@@ -19,6 +19,8 @@ const msgErr = {
     type: MSG_ERROR,
     payload: ["ERROR 404 - POKEMON NOT FOUND"]
 }
+
+
 
 export const getAllPokemons = () => {
     return async function(dispatch){
@@ -126,9 +128,9 @@ export const filterCreate = (origin) => {
     }
 }
 
-export const filterByAttack = (attack) => {
+export const orderByAttack = (attack) => {
     return {
-        type: FILTER_ATTACK,
+        type: ORDER_ATTACK,
         payload: attack
     }
 }

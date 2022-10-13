@@ -1,6 +1,6 @@
 .filtContainer{
     display: flex;
-    height: 45px;
+    height: 60px;
     width: 100%;
     margin-top: 0px;
     background-color: rgb(189, 82, 82);
@@ -31,5 +31,26 @@
 
 .normal{
     cursor: pointer;
+}
+
+.filtRadio {
+    display: flex;
+    border-width: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 6px;
+    height: 50px;
+    width: 330px;
+}
+
+input[type=radio] {
+    width: 30%;
+    height: 1.5em;
+}
+
+.filtDB {
+    border-width: 5px;
+    margin: 6px;
+    height: 50px;
 }
 

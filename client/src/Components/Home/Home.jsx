@@ -12,7 +12,6 @@ import { Filters } from '../Filters/Filters';
 export function Home() {
     const dispatch = useDispatch();
     const fullPokemons = useSelector(state => state.allPokemons);
-    console.log(fullPokemons);
     const msgError = useSelector(state => state.error);
     
     useEffect(() => {
@@ -22,12 +21,13 @@ export function Home() {
             dispatch(clearPokemons());
         }
     }, []);   // matriz de dependencia, se ejecutará una sola vez (aparecerá warning)
-    
-    
+    ////////////////////////////////////////////////////////////////////////////////////////////
     const backHome = () => {
         dispatch(clearPokemons())
         dispatch(getAllPokemons())
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
     //---pokemonsPerPage---//
     const pokemonsPerPage = 12;
@@ -43,8 +43,7 @@ export function Home() {
     function changePage(n) {
         return setPage(n);
     }
-    //---pokemonsPerPage---//
-
+    
     return (
         <>
             <div className={styles.nav}>
