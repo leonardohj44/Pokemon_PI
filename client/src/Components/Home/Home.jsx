@@ -21,13 +21,11 @@ export function Home() {
             dispatch(clearPokemons());
         }
     }, []);   // matriz de dependencia, se ejecutará una sola vez (aparecerá warning)
-    ////////////////////////////////////////////////////////////////////////////////////////////
+    
     const backHome = () => {
         dispatch(clearPokemons())
         dispatch(getAllPokemons())
     }
-
-////////////////////////////////////////////////////////////////////////////////////////////
 
     //---pokemonsPerPage---//
     const pokemonsPerPage = 12;
@@ -59,13 +57,12 @@ export function Home() {
                             <li key={pok.id} className={styles.cards}>
                                 <Link to={`/pokemons/${pok.id}`}>
                                     <h3><strong>{pok.name.toUpperCase()}</strong></h3>
-                                        <img src={pok.image} alt={pok.image} title={`Attack: ${pok.attack}`}
-                                        width={180} height={135}
+                                    <img src={pok.image} alt={pok.image} title={`Attack: ${pok.attack}`} width={180} height={135}
                                         onError={e => {
                                             e.target.onerror = null;
                                             e.target.src = "https://lh5.googleusercontent.com/-0b_4Vr5aj9w/AAAAAAAAAAI/AAAAAAAAEWA/dpO68U9ouK0/w96-c-h96/photo.jpg";    
-                                        }}/>
-                                        <p><strong>Type:</strong> {pok.types.map(el => el[0].toUpperCase()+el.substring(1)).join(", ")}</p>
+                                    }}/>
+                                    <p><strong>Type:</strong> {pok.types.map(el => el[0].toUpperCase()+el.substring(1)).join(", ")}</p>
                                 </Link>
                             </li>
                         ))}

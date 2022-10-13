@@ -20,7 +20,7 @@
     background: none;
     border-width: 2px;
     border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border-color: white;
     border-radius: 10px;
     transition: all 0.3s ease 0s;
     cursor: pointer;
@@ -29,15 +29,32 @@
 .header{
     width: 100%;
     height:  50px;
-    background-color: peru;
+
     border-width: 2px;
     border-style: solid;
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: black;
+    animation: infinite;
+    animation-name: example;
+    animation-duration: 4s;
 }
+
+@keyframes example {
+    from {background-color: black;}
+    to {background-color:maroon;}
+  }
 
 #round{
     border-radius: 10px;
 }
+
+.titulo {
+    font-size:xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+}
+
+ 

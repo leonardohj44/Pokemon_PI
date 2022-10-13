@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {  orderAlphabetically, filterByTypes, filterCreate, orderByAttack, getAllPokemons, clearPokemons} from '../../Redux/Actions';
 import styles from './Filters.module.css'
 import { SearchBar } from '../SearchBar/SearchBar';
+import banner from "../Images/banner.gif";
 
 export function Filters({backHome}) {
     const dispatch = useDispatch();
@@ -77,11 +78,21 @@ export function Filters({backHome}) {
 
     return (
         <div className={styles.filtContainer}>
+            <img src={banner} width={404} height={60} />
             <div className={styles.search}>
                 <SearchBar />
             </div>
 
-            <div className={styles.filt}>
+            <div className={styles.filtDB}>
+                <select name="created" id="Created Filter" onChange={handleCreated} value={filtersState.filterCreated} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
+                    <option value="0" disabled>Source database</option>
+                    <option value="API">Pokemons from API</option>
+                    <option value="POKEMONS CREATED">Pokemons from Database</option>
+                    <option value="ALL" >Show All</option>
+                </select>
+            </div>
+
+            <div className={styles.filtType}>
             <select name="type" id="Type Filter" onChange={handleTypeFilter} value={filtersState.typesFilter} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
                 <option value="">Filter by types</option>
                 {typesPok.map(e => 
@@ -112,22 +123,15 @@ export function Filters({backHome}) {
                 </div>  
             </div>
 
-            <div className={styles.filtDB}>
-            <select name="created" id="Created Filter" onChange={handleCreated} value={filtersState.filterCreated} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
-                <option value="0" disabled>Source database</option>
-                <option value="API">Pokemons from API</option>
-                <option value="POKEMONS CREATED">Pokemons from Database</option>
-                <option value="ALL" >Show All</option>
-            </select>
-            </div>
+
           
-            <div className={styles.filt}>
+            {/* <div className={styles.filt}>
                 <div className={styles.clear}>
                     <button type="submit" value={filtersState.alphabeticalOrder} onClick={clearAllFilters} onFocus={()=>setChecked(()=>({A:false, Z:false, HIGH:false, LOW:false}))}>
                         Clear Filters
                     </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
