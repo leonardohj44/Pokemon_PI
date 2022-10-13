@@ -5,7 +5,7 @@ const router = Router();
 
 router.post("/", async (req, res) => {
     try {
-        const dataFromForm = req.body; // --> dataFromForm is an object
+        const dataFromForm = req.body; // --> data from form
         let validateName = await Pokemon.findOne({where: {name: dataFromForm.name}})
         if(validateName !== null) return res.status(404).send("This name already exists, try another one.")
         await postPokemon(dataFromForm);
