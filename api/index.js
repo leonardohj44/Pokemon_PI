@@ -24,6 +24,6 @@ const { getAllTypes, getFromAPI } = require('./src/utils/index.js');
 conn.sync({ force: true }).then(() => {
   getAllTypes();
   server.listen(process.env.PORT, () => {
-    console.log('Listening at %s',process.env.PORT); // eslint-disable-line no-console
+    console.log('Listening at %s', process.env.PORT); // eslint-disable-line no-console
   });
 });
