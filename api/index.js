@@ -21,7 +21,7 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { getAllTypes, getFromAPI } = require('./src/utils/index.js');
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   getAllTypes();
   server.listen(process.env.PORT, () => {
     console.log('Listening at %s', process.env.PORT); // eslint-disable-line no-console
