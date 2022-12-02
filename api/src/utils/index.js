@@ -20,7 +20,7 @@ const getAllTypes = async () => {
 
 const getFromAPI = async () => {
   try {
-      const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=30");   // No se por qué se redujo de 40 a 24 cards como max. Estoy castigado
+      const pokemonsAPI = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=24");   // No se por qué se redujo de 40 a 24 cards como max. Estoy castigado
       const subreq = pokemonsAPI.data.results.map(async e => await axios.get(e.url))
       const result = await Promise.all(subreq); // ---> [{},{},{}]
       const pokemons = result.map( e => {
